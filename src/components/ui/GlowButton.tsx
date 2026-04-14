@@ -8,7 +8,7 @@ interface GlowButtonProps extends HTMLMotionProps<"button"> {
 export function GlowButton({
   className,
   text = "LEARN MORE",
-  href = "#advantages",
+  href = "#whatistdg",
   ...props
 }: GlowButtonProps & { href?: string }) {
   const ButtonContent = (
@@ -34,15 +34,6 @@ export function GlowButton({
       {/* Button content container */}
       <span className="relative z-10 flex items-center justify-center gap-4 px-12 py-5 text-white font-display text-2xl md:text-3xl tracking-[0.2em] font-bold group-hover:text-[var(--color-accent-yellow)] transition-colors duration-300">
         {text}
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          className="w-7 h-7 md:w-8 md:h-8 transition-transform duration-300 group-hover:translate-x-2"
-        >
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
       </span>
 
       {/* Subtle outer glow on hover */}

@@ -39,10 +39,17 @@ export function Hero() {
 
         {/* Vignette — fixed in sticky container so it never moves during scroll */}
         <div
-          className="absolute inset-0 z-[1]"
+          className="absolute inset-0 z-[1] hidden md:block"
           style={{
             background:
               "radial-gradient(ellipse 75% 60% at 50% 50%, rgba(0,0,0,0.55) 0%, transparent 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-0 z-[1] md:hidden"
+          style={{
+            background:
+              "radial-gradient(ellipse 140% 70% at 50% 50%, rgba(0,0,0,0.65) 0%, transparent 100%)",
           }}
         />
 
@@ -72,7 +79,7 @@ export function Hero() {
 
             {/* Medium — gradient green */}
             <motion.h2
-              className="font-display text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[1.1] mt-6 lg:mt-10 bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="font-display text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[0.95] mt-6 lg:mt-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -81,12 +88,13 @@ export function Hero() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              ArmorGalv&reg; Process&hellip;TDG Perfected!
+              <span className="bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent">ArmorGalv&reg; Process&hellip;</span>
+              <span className="bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent">TDG Perfected!</span>
             </motion.h2>
 
             {/* Small — white */}
             <motion.p
-              className="text-white text-lg md:text-xl font-bold tracking-[0.25em] mt-10 lg:mt-16 uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="text-white text-lg md:text-xl font-bold tracking-[0.25em] mt-6 lg:mt-8 uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{

@@ -1,4 +1,5 @@
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { images } from "@/data/images";
 import { aboutItems } from "@/data/content";
@@ -58,14 +59,21 @@ interface AboutItemPanelProps {
 }
 
 function AboutItemPanel({ item }: AboutItemPanelProps) {
+  const [modalSrc, setModalSrc] = useState<string | null>(null);
+
   const imagePath = item.image
     ? (images as Record<string, string>)[item.image] || item.image
     : null;
 
-  const collageImagePaths = item.collageImages
+  const sourceImages = item.collageImages
     ? item.collageImages.map(
         (key) => (images as Record<string, string>)[key] || key
       )
+    : [];
+
+  // Repeat source images to fill 15 slots (5 cols × 3 rows)
+  const collageImagePaths = sourceImages.length > 0
+    ? Array.from({ length: 15 }, (_, i) => sourceImages[i % sourceImages.length])
     : [];
 
   return (
@@ -78,31 +86,71 @@ function AboutItemPanel({ item }: AboutItemPanelProps) {
     >
       {/* Title */}
       <motion.h3
-        className="font-display text-5xl md:text-6xl lg:text-7xl text-[var(--color-text-primary)] mb-12 leading-[1.1] tracking-tight uppercase"
+        className="font-display text-5xl md:text-6xl lg:text-7xl text-[var(--color-text-primary)] mb-12 mt-12 lg:mt-24 leading-[1.1] tracking-tight uppercase"
         variants={textVariants}
       >
         {item.title}
       </motion.h3>
 
       {item.isCollage && collageImagePaths.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {collageImagePaths.map((imgPath, i) => (
-            <motion.div
-              key={i}
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f8f9fa] border border-[var(--color-steel-dark)]/10 shadow-[0_10px_20px_-8px_rgba(0,0,0,0.08)] group"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
-            >
-              <img
-                src={imgPath}
-                alt={`${item.title} ${i + 1}`}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </motion.div>
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+            {collageImagePaths.map((imgPath, i) => (
+              <motion.button
+                key={i}
+                className="relative aspect-square overflow-hidden rounded-xl bg-[#f8f9fa] border border-[var(--color-steel-dark)]/10 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] group cursor-pointer"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.03 }}
+                onClick={() => setModalSrc(imgPath)}
+              >
+                <img
+                  src={imgPath}
+                  alt={`${item.title} ${i + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-2xl">⤢</span>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Modal */}
+          <AnimatePresence>
+            {modalSrc && (
+              <motion.div
+                className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setModalSrc(null)}
+              >
+                <motion.div
+                  className="relative max-w-4xl w-full max-h-[90vh]"
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img
+                    src={modalSrc}
+                    alt="Example"
+                    className="w-full h-auto max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+                  />
+                  <button
+                    className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors text-lg"
+                    onClick={() => setModalSrc(null)}
+                  >
+                    ✕
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
       ) : item.points?.length ? (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-start">
           <motion.ul className="space-y-6" variants={textVariants}>

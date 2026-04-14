@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import armorGalvAvatar from "@/assets/ArmorGalv-Avatar.png";
+import armorGalvLogo from "@/assets/ArmorGalv-Logo.png";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { BackToTop } from "@/components/layout/BackToTop";
@@ -51,14 +51,14 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="py-20 bg-black border-t border-[var(--color-steel-dark)]/30 text-white">
+      <footer className="py-20 bg-white border-t border-[var(--color-steel-dark)]/20 text-black">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             {/* Logo & Tagline */}
             <div className="flex flex-col items-start gap-6">
               <div className="flex items-center gap-3">
-                <img src={armorGalvAvatar} alt="ArmorGalv" className="h-12 w-auto object-contain" />
-                <div className="flex flex-col text-[10px] tracking-wider text-white">
+                <img src={armorGalvLogo} alt="ArmorGalv" className="h-12 w-auto object-contain" />
+                <div className="flex flex-col text-[10px] tracking-wider text-black">
                   <span>THERMAL DIFFUSION</span>
                   <span>GALVANIZING</span>
                   <span className="text-[var(--color-accent-orange)]">
@@ -66,7 +66,7 @@ function App() {
                   </span>
                 </div>
               </div>
-              <p className="text-white text-sm max-w-xs">
+              <p className="text-black text-sm max-w-xs">
                 ArmorGalv&reg; &mdash; Thermal Diffusion Galvanizing perfected.
                 A superior choice to hot dip galvanizing, meeting ASTM A-1059
                 standards.
@@ -75,15 +75,15 @@ function App() {
 
             {/* Contact Info */}
             <div className="flex flex-col gap-6">
-              <h4 className="font-display text-lg tracking-widest text-white">
+              <h4 className="font-display text-lg tracking-widest text-black">
                 CONTACT
               </h4>
-              <div className="flex flex-col gap-4 text-sm text-white">
+              <div className="flex flex-col gap-4 text-sm text-black">
                 <p className="flex items-center gap-3">
                   <span className="text-[var(--color-accent-orange)]">E:</span>
                   <a
                     href="mailto:moshe@armorgalv.com"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[var(--color-accent-orange)] transition-colors"
                   >
                     moshe@armorgalv.com
                   </a>
@@ -92,7 +92,7 @@ function App() {
                   <span className="text-[var(--color-accent-orange)]">P:</span>
                   <a
                     href="tel:+1xxx8888888"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[var(--color-accent-orange)] transition-colors"
                   >
                     xxx-888-8888
                   </a>
@@ -109,19 +109,19 @@ function App() {
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-[var(--color-steel-dark)]/20">
             {/* Copyright */}
-            <p className="text-white text-xs">
+            <p className="text-black text-xs">
               &copy; {new Date().getFullYear()} ArmorGalv&reg;. All
               rights reserved.
             </p>
 
-            <div className="flex items-center gap-6 text-xs text-white">
+            <div className="flex items-center gap-6 text-xs text-black">
               <Link
                 to="/privacy"
-                className="hover:text-white transition-colors"
+                className="hover:text-[var(--color-accent-orange)] transition-colors"
               >
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="hover:text-white transition-colors">
+              <Link to="/terms" className="hover:text-[var(--color-accent-orange)] transition-colors">
                 Terms of Service
               </Link>
             </div>

@@ -24,7 +24,7 @@ const imageReveal: Variants = {
 export function WhatIsTdg() {
   return (
     <section
-      className="relative bg-[var(--color-bg-primary)] py-12 lg:py-16"
+      className="relative bg-[var(--color-bg-primary)] py-12 lg:py-16 scroll-mt-20 md:scroll-mt-24"
       id="whatistdg"
     >
       <div className="w-full pl-0 pr-6 md:pr-12 lg:pr-16">
