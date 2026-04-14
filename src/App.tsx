@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import armorGalvAvatar from "@/assets/ArmorGalv-Avatar.png";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { BackToTop } from "@/components/layout/BackToTop";
@@ -56,7 +57,7 @@ function App() {
             {/* Logo & Tagline */}
             <div className="flex flex-col items-start gap-6">
               <div className="flex items-center gap-3">
-                <span className="font-display text-4xl text-white">AG</span>
+                <img src={armorGalvAvatar} alt="ArmorGalv" className="h-12 w-auto object-contain" />
                 <div className="flex flex-col text-[10px] tracking-wider text-white">
                   <span>THERMAL DIFFUSION</span>
                   <span>GALVANIZING</span>

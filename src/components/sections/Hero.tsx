@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { images } from "@/data/images";
 import { GlowButton } from "@/components/ui/GlowButton";
 
+
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
 
@@ -13,12 +14,6 @@ export function Hero() {
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
   const backgroundScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.25]);
-  const overlayOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [0.5, 0.7, 0.9],
-  );
-
   const contentOpacity = useTransform(
     scrollYProgress,
     [0, 0.3, 0.5],
@@ -42,10 +37,6 @@ export function Hero() {
             className="w-full h-full object-cover"
           />
 
-          <motion.div
-            className="absolute inset-0 bg-black/50"
-            style={{ opacity: overlayOpacity }}
-          />
         </motion.div>
 
         {/* Content */}
@@ -57,67 +48,47 @@ export function Hero() {
 
           {/* Main headline */}
           <div className="text-center w-full">
-            <motion.p
-              className="text-white text-xl md:text-2xl font-bold tracking-[0.4em] mb-6 md:mb-10 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] uppercase opacity-95"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0, ease: "easeOut" }}
-            >
-              THERMAL DIFFUSION GALVANIZING (TDG)
-            </motion.p>
+            {/* Biggest — white */}
             <motion.h1
-              className="font-display text-[11vw] md:text-[8vw] lg:text-[7vw] leading-[0.85] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
+              className="font-display text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              ARMORGALV&reg;
+              Thermal Diffusion Galvanizing (TDG)
             </motion.h1>
 
+            {/* Medium — gradient green */}
             <motion.h2
-              className="font-display text-[7vw] md:text-[5vw] lg:text-[4vw] leading-[0.9] mt-2 md:mt-4 drop-shadow-2xl bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] drop-shadow-[0_4px_24px_rgba(0,0,0,0.5)] bg-clip-text text-transparent"
+              className="font-display text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[1.1] mt-3 md:mt-4 bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.5,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
             >
-              TDG PERFECTED
+              ArmorGalv&reg; Process&hellip;TDG Perfected!
             </motion.h2>
 
+            {/* Small — white */}
             <motion.p
-              className="text-white/80 text-lg md:text-xl tracking-[0.2em] mt-6 md:mt-8 uppercase"
+              className="text-white text-xl md:text-2xl font-bold tracking-[0.25em] mt-5 md:mt-6 uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              A SUPERIOR CHOICE TO HOT DIP GALVANIZING
+              A Superior Choice to Hot Dip Galvanizing
             </motion.p>
 
+            {/* Smallest — green */}
             <motion.p
-              className="text-[var(--color-accent-orange)] text-sm md:text-base tracking-[0.3em] mt-4 font-mono"
+              className="text-[var(--color-accent-yellow)] text-xl md:text-2xl font-bold tracking-[0.35em] mt-3 font-mono uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.9,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
             >
-              MEETS ASTM A-1059 STANDARD
+              Meets ASTM A-1059 Standard
             </motion.p>
 
-            <div className="mt-12 md:mt-16 flex justify-center">
+            <div className="mt-10 md:mt-12 flex justify-center">
               <GlowButton />
             </div>
           </div>

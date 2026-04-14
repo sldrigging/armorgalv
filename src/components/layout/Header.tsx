@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/data/content";
 import logo from "@/assets/armorgalv-logo.png";
+import ecoLogo from "@/assets/Eco-Friendly-Logo.png";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,7 +10,9 @@ export function Header() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const headerHeight = document.querySelector("header")?.offsetHeight ?? 96;
+      const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.scrollTo({ top, behavior: "smooth" });
     }
     setMobileMenuOpen(false);
   };
@@ -38,9 +41,9 @@ export function Header() {
           </div>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center gap-6 flex-initial">
+          <nav className="hidden lg:flex items-center gap-6 flex-initial h-full">
             {navigation.map((item) => (
-              <div key={item.id} className="relative group">
+              <div key={item.id} className="relative group h-full flex items-center">
                 <button
                   onClick={() => !item.children && scrollToSection(item.id)}
                   className="relative px-4 py-2 text-base font-bold tracking-wide text-[var(--color-text-primary)] hover:text-[var(--color-accent-orange)] transition-colors duration-300 cursor-pointer"
@@ -52,7 +55,7 @@ export function Header() {
                 </button>
                 
                 {item.children && (
-                  <div className="absolute top-full left-0 mt-2 w-72 bg-white border border-[var(--color-steel-dark)]/10 shadow-lg rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col py-2">
+                  <div className="absolute top-full left-0 w-72 bg-white border border-[var(--color-steel-dark)]/10 shadow-lg rounded-b-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col py-2">
                     {item.children.map((child) => (
                       <button
                         key={child.id}
@@ -68,8 +71,10 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Right side spacer */}
-          <div className="flex-1 hidden lg:block" />
+          {/* Right side — eco logo */}
+          <div className="flex-1 hidden lg:flex justify-end items-center">
+            <img src={ecoLogo} alt="Eco Friendly" className="h-14 md:h-16 w-auto object-contain" />
+          </div>
 
           {/* Mobile menu button */}
           <button
