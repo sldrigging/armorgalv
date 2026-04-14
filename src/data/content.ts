@@ -7,6 +7,7 @@ export interface Advantage {
   secondImage?: string;
   isCollage?: boolean;
   collageImages?: string[];
+  maxWidth?: string;
 }
 
 export interface ProcessStep {
@@ -81,6 +82,7 @@ export const advantages: Advantage[] = [
     description:
       "Because the process uses zinc vapor (gas), the zinc reaches and coats every surface that a gas touches; including internal threads, deep recesses, and hollow tubes.",
     image: "surfaceProtection",
+    maxWidth: "345px",
   },
   {
     id: "thicknessControl",
@@ -113,6 +115,7 @@ export const advantages: Advantage[] = [
     description:
       "For most steel parts, ArmorGalv\u00AE is applied at roughly 700\u00B0F (380\u00B0C) vs hot dip galvanizing at 850\u00B0F (450\u00B0C). This helps ensure that mechanical properties and fatigue strength are preserved. ArmorGalv\u00AE can be applied at a temperature range of 590\u00B0F to 1020\u00B0F (310\u00B0C to 550\u00B0C).",
     image: "lowerTemperature",
+    maxWidth: "400px",
   },
   {
     id: "highTemperature",
@@ -121,6 +124,7 @@ export const advantages: Advantage[] = [
     description:
       "Once applied, ArmorGalv\u00AE can continually operate at temperatures as high as 1200\u00B0F (650\u00B0C).",
     image: "highTemperature",
+    maxWidth: "400px",
   },
   {
     id: "topcoats",

@@ -77,7 +77,8 @@ function AdvantagePanel({ advantage, index }: AdvantagePanelProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-24 lg:gap-24 items-center">
         <div className={cn("order-2", isEven ? "md:order-2" : "md:order-1")}>
             <motion.div
-              className="relative w-full max-w-[800px] overflow-hidden rounded-3xl border border-[var(--color-steel-dark)]/10 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] group"
+              className="relative overflow-hidden rounded-3xl border border-[var(--color-steel-dark)]/10 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08)] group mx-auto"
+              style={{ width: '100%', maxWidth: advantage.maxWidth ?? '800px' }}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.1 }}

@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { images } from "@/data/images";
 import { GlowButton } from "@/components/ui/GlowButton";
 
-
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
 
@@ -36,15 +35,22 @@ export function Hero() {
             alt="Industrial Steel Galvanizing"
             className="w-full h-full object-cover"
           />
-
         </motion.div>
+
+        {/* Vignette — fixed in sticky container so it never moves during scroll */}
+        <div
+          className="absolute inset-0 z-[1]"
+          style={{
+            background:
+              "radial-gradient(ellipse 75% 60% at 50% 50%, rgba(0,0,0,0.55) 0%, transparent 100%)",
+          }}
+        />
 
         {/* Content */}
         <motion.div
           className="relative z-10 h-full flex flex-col items-center justify-center px-6"
           style={{ opacity: contentOpacity, y: contentY, scale: contentScale }}
         >
-          <div className="absolute inset-x-0 h-[60%] bg-black/40 blur-3xl rounded-[100%] z-[-1]" />
 
           {/* Main headline */}
           <div className="text-center w-full">
@@ -53,42 +59,60 @@ export function Hero() {
               className="font-display text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
-              Thermal Diffusion Galvanizing (TDG)
+              Thermal Diffusion
+              <br />
+              Galvanizing <span className="text-[0.85em]" style={{ verticalAlign: '0.08em', marginRight: '0.08em' }}>(</span>TDG<span className="text-[0.85em]" style={{ verticalAlign: '0.08em', marginLeft: '0.08em' }}>)</span>
             </motion.h1>
 
             {/* Medium — gradient green */}
             <motion.h2
-              className="font-display text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[1.1] mt-3 md:mt-4 bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="font-display text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[1.1] mt-6 lg:mt-10 bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.35,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               ArmorGalv&reg; Process&hellip;TDG Perfected!
             </motion.h2>
 
             {/* Small — white */}
             <motion.p
-              className="text-white text-xl md:text-2xl font-bold tracking-[0.25em] mt-5 md:mt-6 uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="text-white text-lg md:text-xl font-bold tracking-[0.25em] mt-10 lg:mt-16 uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.7,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               A Superior Choice to Hot Dip Galvanizing
             </motion.p>
 
             {/* Smallest — green */}
             <motion.p
-              className="text-[var(--color-accent-yellow)] text-xl md:text-2xl font-bold tracking-[0.35em] mt-3 font-mono uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="text-[var(--color-accent-yellow)] text-base md:text-lg font-bold tracking-[0.35em] mt-1 font-mono uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.85,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               Meets ASTM A-1059 Standard
             </motion.p>
 
-            <div className="mt-10 md:mt-12 flex justify-center">
+            <div className="mt-7 md:mt-9 lg:mt-14 flex justify-center">
               <GlowButton />
             </div>
           </div>
