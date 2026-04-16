@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
+import { brandText } from "@/lib/brandText";
 
 const faqs = [
   {
@@ -74,7 +75,7 @@ export function Faq() {
                     className="border border-[var(--color-steel-dark)]/20 rounded-[2rem] bg-[var(--color-bg-secondary)] overflow-hidden transition-all duration-300 hover:border-[var(--color-accent-orange)]/40 h-fit"
                   >
                     <AccordionTrigger className="flex w-full items-center justify-between px-10 py-6 md:px-12 md:py-8 text-left font-display text-lg md:text-2xl text-[var(--color-text-primary)] hover:text-[var(--color-accent-orange)] transition-colors uppercase tracking-widest group">
-                      {faq.question}
+                      {brandText(faq.question)}
                     </AccordionTrigger>
                     <AccordionContent className="text-[var(--color-text-secondary)] text-base md:text-xl leading-relaxed font-light px-10 pb-6 md:px-12 md:pb-8">
                       <div className="pt-6 border-t border-[var(--color-steel-dark)]/10">

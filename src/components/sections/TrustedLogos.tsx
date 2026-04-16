@@ -30,7 +30,7 @@ export function TrustedLogos() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="font-display text-4xl md:text-5xl lg:text-7xl text-[var(--color-text-primary)] leading-tight tracking-tight">
+              <h3 className="font-display uppercase text-4xl md:text-5xl lg:text-7xl text-[var(--color-text-primary)] leading-tight tracking-tight">
                 MEETS THE HIGHEST <br />
                 <span className="text-[var(--color-accent-orange)]">
                   INDUSTRY STANDARDS
@@ -41,7 +41,7 @@ export function TrustedLogos() {
                 {standards.map((standard) => (
                   <span
                     key={standard}
-                    className="font-display text-xl md:text-2xl lg:text-3xl tracking-[0.2em] font-bold text-[var(--color-text-primary)] hover:text-[var(--color-accent-orange)] transition-colors duration-500 cursor-default"
+                    className="font-display uppercase text-xl md:text-2xl lg:text-3xl tracking-[0.2em] font-bold text-[var(--color-text-primary)] hover:text-[var(--color-accent-orange)] transition-colors duration-500 cursor-default"
                   >
                     {standard}
                   </span>

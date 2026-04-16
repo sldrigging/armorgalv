@@ -2,6 +2,7 @@ import { motion, type Variants } from "framer-motion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { images } from "@/data/images";
 import { aboutItems } from "@/data/content";
+import { brandText } from "@/lib/brandText";
 const textVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -32,7 +33,7 @@ export function WhatIsTdg() {
           {/* Sticky Title Column */}
           <div className="w-full lg:w-fit lg:min-w-[200px]">
             <div className="lg:sticky lg:top-24 h-fit">
-              <SectionTitle title={"ABOUT\nARMORGALV"} align="left" size="sidebar" />
+              <SectionTitle title={<>ABOUT{"\n"}<span style={{ textTransform: "none" }}>ArmorGalv<sup style={{ fontSize: "0.55em", verticalAlign: "super", lineHeight: 0 }}>®</sup></span></>} align="left" size="sidebar" />
               <div className="mt-6 hidden lg:flex flex-col items-start gap-4">
                 <div className="w-px h-12 bg-[var(--color-steel-dark)]/30" />
               </div>
@@ -73,7 +74,7 @@ export function WhatIsTdg() {
                   </p>
 
                   <p className="text-[var(--color-text-secondary)] text-lg md:text-xl lg:text-2xl leading-relaxed font-light">
-                    ArmorGalv&reg; combines proprietary zinc powder mixtures with
+                    ArmorGalv<sup>®</sup> combines proprietary zinc powder mixtures with
                     computer-controlled precision to deliver superior corrosion
                     protection. The process uses catalysts that cause sublimation,
                     allowing zinc vapor to diffuse into steel at lower temperatures
@@ -168,7 +169,7 @@ function AboutItemPanel({ item }: AboutItemPanelProps) {
         className="font-display text-5xl md:text-6xl lg:text-7xl text-[var(--color-text-primary)] mb-12 leading-[1.1] tracking-tight uppercase"
         variants={textVariants}
       >
-        {item.title}
+        {brandText(item.title)}
       </motion.h3>
 
       {item.isCollage && collageImagePaths.length > 0 ? (

@@ -51,7 +51,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="py-20 bg-white border-t border-[var(--color-steel-dark)]/20 text-black">
+      <footer id="footer" className="py-20 bg-white border-t border-[var(--color-steel-dark)]/20 text-black">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             {/* Logo & Tagline */}
@@ -62,12 +62,12 @@ function App() {
                   <span>THERMAL DIFFUSION</span>
                   <span>GALVANIZING</span>
                   <span className="text-[var(--color-accent-orange)]">
-                    ARMORGALV&reg;
+                    ArmorGalv<sup>®</sup>
                   </span>
                 </div>
               </div>
               <p className="text-black text-sm max-w-xs">
-                ArmorGalv&reg; &mdash; Thermal Diffusion Galvanizing perfected.
+                ArmorGalv<sup>®</sup> &mdash; Thermal Diffusion Galvanizing perfected.
                 A superior choice to hot dip galvanizing, meeting ASTM A-1059
                 standards.
               </p>
@@ -75,7 +75,7 @@ function App() {
 
             {/* Contact Info */}
             <div className="flex flex-col gap-6">
-              <h4 className="font-display text-lg tracking-widest text-black">
+              <h4 className="font-display uppercase text-lg tracking-widest text-black">
                 CONTACT
               </h4>
               <div className="flex flex-col gap-4 text-sm text-black">
@@ -110,7 +110,7 @@ function App() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 border-t border-[var(--color-steel-dark)]/20">
             {/* Copyright */}
             <p className="text-black text-xs">
-              &copy; {new Date().getFullYear()} ArmorGalv&reg;. All
+              &copy; {new Date().getFullYear()} ArmorGalv<sup>®</sup>. All
               rights reserved.
             </p>
 

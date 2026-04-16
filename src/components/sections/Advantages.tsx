@@ -140,7 +140,7 @@ function AdvantagePanel({ advantage, index }: AdvantagePanelProps) {
             )}
           >
             <motion.h3
-              className="font-display text-5xl md:text-6xl lg:text-7xl text-[var(--color-text-primary)] mb-6 leading-[1.1] tracking-tight"
+              className="font-display uppercase text-5xl md:text-6xl lg:text-7xl text-[var(--color-text-primary)] mb-6 leading-[1.1] tracking-tight"
               variants={itemVariants}
             >
               {advantage.title.toUpperCase()}

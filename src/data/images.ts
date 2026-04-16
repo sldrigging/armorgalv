@@ -27,6 +27,7 @@ export const images = {
   lifecycleSavings: "/images/slide17_img22.jpg",
 
   // Application process images (from slide 19 examples)
+  tumbleBlasted: "/images/tumble-blasted-parts.jpg",
   abrasiveBlasting: "/images/slide19_img54.jpg",
   cylindricalChamber: "/images/slide19_img56.jpg",
   heatingOven: "/images/slide19_img57.jpg",

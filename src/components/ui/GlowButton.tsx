@@ -32,7 +32,7 @@ export function GlowButton({
       <div className="absolute inset-[2px] bg-[#0f0f0f] rounded-full z-0" />
 
       {/* Button content container */}
-      <span className="relative z-10 flex items-center justify-center gap-4 px-12 py-5 text-white font-display text-2xl md:text-3xl tracking-[0.2em] font-bold group-hover:text-[var(--color-accent-yellow)] transition-colors duration-300">
+      <span className="relative z-10 flex items-center justify-center gap-4 px-12 py-5 text-white font-display uppercase text-2xl md:text-3xl tracking-[0.2em] font-bold group-hover:text-[var(--color-accent-yellow)] transition-colors duration-300">
         {text}
       </span>
 

@@ -32,7 +32,7 @@ export function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h3 className="font-display text-4xl md:text-5xl lg:text-7xl text-[var(--color-text-primary)] mb-12 leading-tight tracking-tight">
+              <h3 className="font-display uppercase text-4xl md:text-5xl lg:text-7xl text-[var(--color-text-primary)] mb-12 leading-tight tracking-tight">
                 GET IN <br />
                 <span className="text-[var(--color-accent-orange)]">
                   TOUCH
@@ -40,7 +40,7 @@ export function Contact() {
               </h3>
 
               <p className="text-[var(--color-text-secondary)] text-xl md:text-3xl leading-relaxed font-light mb-16 max-w-5xl">
-                Interested in ArmorGalv&reg; for your projects? Contact us to
+                Interested in ArmorGalv<sup>®</sup> for your projects? Contact us to
                 discuss how thermal diffusion galvanizing can provide superior
                 protection for your steel components.
               </p>
@@ -49,7 +49,7 @@ export function Contact() {
               <div className="w-full mb-16">
                 {serviceProviders.map((category) => (
                   <div key={category.category} className="mb-12">
-                    <h4 className="font-display text-2xl md:text-3xl text-[var(--color-text-primary)] mb-2 tracking-wide">
+                    <h4 className="font-display uppercase text-2xl md:text-3xl text-[var(--color-text-primary)] mb-2 tracking-wide">
                       {category.category}
                     </h4>
                     {"note" in category && category.note && (

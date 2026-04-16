@@ -1,18 +1,32 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/data/content";
+import { brandText } from "@/lib/brandText";
 import logo from "@/assets/armorgalv-logo.png";
 import ecoLogo from "@/assets/Eco-Friendly-Logo.png";
+import { useLenis } from "@/components/layout/SmoothScroll";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lenis } = useLenis();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 96;
-      const top = element.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top, behavior: "smooth" });
+      // Walk the offsetParent chain for the absolute document position
+      let offsetTop = 0;
+      let el: HTMLElement | null = element;
+      while (el) {
+        offsetTop += el.offsetTop;
+        el = el.offsetParent as HTMLElement | null;
+      }
+      const target = offsetTop - headerHeight;
+      if (lenis) {
+        lenis.scrollTo(target, { immediate: true });
+      } else {
+        window.scrollTo({ top: target, behavior: "smooth" });
+      }
     }
     setMobileMenuOpen(false);
   };
@@ -49,7 +63,7 @@ export function Header() {
                   className="relative px-4 py-2 text-base font-bold tracking-wide text-[var(--color-text-primary)] hover:text-[var(--color-accent-orange)] transition-colors duration-300 cursor-pointer"
                 >
                   <span className="relative z-10 inline-block font-mono text-sm tracking-[0.2em] uppercase">
-                    {item.label}
+                    {brandText(item.label)}
                     {!item.children && <span className="absolute left-0 right-0 -bottom-1 h-[1px] bg-[var(--color-accent-orange)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />}
                   </span>
                 </button>
@@ -122,7 +136,7 @@ export function Header() {
                     className="relative py-4 pl-6 text-left text-white hover:text-[var(--color-accent-orange)] transition-colors duration-300 group"
                   >
                     <span className="font-mono text-lg tracking-[0.2em] uppercase">
-                      {item.label}
+                      {brandText(item.label)}
                     </span>
                     {!item.children && (
                       <motion.span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[var(--color-accent-orange)] group-hover:h-8 transition-all duration-300" />

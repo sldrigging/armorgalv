@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
 
 interface SectionTitleProps {
-  title: string;
+  title: ReactNode;
   className?: string;
   align?: "left" | "center";
   size?: "default" | "sidebar";

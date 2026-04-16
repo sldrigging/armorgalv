@@ -27,6 +27,11 @@ export interface Stat {
   label: string;
 }
 
+export interface ExampleImage {
+  tn: string;
+  full: string;
+}
+
 export interface AboutItem {
   id: string;
   title: string;
@@ -36,6 +41,7 @@ export interface AboutItem {
   secondImage?: string;
   isCollage?: boolean;
   collageImages?: string[];
+  exampleImages?: ExampleImage[];
   belowTextImage?: string;
 }
 
@@ -177,7 +183,7 @@ export const processSteps: ProcessStep[] = [
     subtitle: "Abrasive Blasting",
     description:
       "Parts are abrasive blasted, cleaned and dried to ensure optimal surface adhesion.",
-    image: "abrasiveBlasting",
+    image: "tumbleBlasted",
   },
   {
     id: "step2",
@@ -185,7 +191,7 @@ export const processSteps: ProcessStep[] = [
     subtitle: "Precision Zinc Measurement",
     description:
       "Parts are placed into cylindrical chamber along with proprietary zinc powder mixture. The volume of the zinc mixture is precisely calculated based on the total surface area of the parts. This results in excellent thickness control and near 100% usage of the zinc powder.",
-    image: "cylindricalChamber",
+    image: "heatingOven",
   },
   {
     id: "step3",
@@ -193,7 +199,7 @@ export const processSteps: ProcessStep[] = [
     subtitle: "Controlled Oven Environment",
     description:
       "Cylindrical chamber is placed into a heating oven where controlled temperatures activate the zinc vapor diffusion process.",
-    image: "heatingOven",
+    image: "cylindricalChamber",
   },
   {
     id: "step4",
@@ -201,7 +207,7 @@ export const processSteps: ProcessStep[] = [
     subtitle: "Complete & Even Coverage",
     description:
       "Inside the oven, the cylindrical chamber turns at less than 2 RPM to ensure surfaces are completely and evenly treated. Typical heating process time is around 3 hours.",
-    image: "ovenProcess",
+    image: "abrasiveBlasting",
   },
 ];
 
@@ -255,6 +261,29 @@ export const aboutItems: AboutItem[] = [
     title: "ArmorGalv\u00AE Examples",
     isCollage: true,
     collageImages: ["examples1", "examples2", "examples3", "examples4"],
+    exampleImages: [
+      { tn: "/images/armorgalv-examples/TN/Base-Flange-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Base-Flange-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Bolt-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Bolt-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Connector-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Connector-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Edge-Protector-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Edge-Protector-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Gas-Valve-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Gas-Valve-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Internal-Threaded-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Internal-Threaded-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Lag-Screw-ArmorGalv-Example-small.png", full: "/images/armorgalv-examples/Full/Lag-Screw-ArmorGalv-Example.png" },
+      { tn: "/images/armorgalv-examples/TN/Lifting-Chain-Fittings-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Lifting-Chain-Fittings-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Lifting-Fittings-ArmorGalv-Example-small.png", full: "/images/armorgalv-examples/Full/Lifting-Fittings-ArmorGalv-Example.png" },
+      { tn: "/images/armorgalv-examples/TN/Nut-and-Bolt-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Nut-and-Bolt-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Post-Jack-ArmorGalv-Example-small.png", full: "/images/armorgalv-examples/Full/Post-Jack-ArmorGalv-Example.png" },
+      { tn: "/images/armorgalv-examples/TN/Railroad-Components-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Railroad-Components-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Rebar-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Rebar-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Screw-Jack-ArmorGalv-Example-small.png", full: "/images/armorgalv-examples/Full/Screw-Jack-ArmorGalv-Example.png" },
+      { tn: "/images/armorgalv-examples/TN/Sleeve-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Sleeve-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Slot-Inserts-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Slot-Inserts-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Spring-Clamp-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Spring-Clamp-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Threaded-Components-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Threaded-Components-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Threaded-Part-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Threaded-Part-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Threaded-Parts-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Threaded-Parts-ArmorGalv-Example.jpg" },
+      { tn: "/images/armorgalv-examples/TN/Threaded-Pipe-ArmorGalv-Example-small.jpg", full: "/images/armorgalv-examples/Full/Threaded-Pipe-ArmorGalv-Example.jpg" },
+    ],
   },
 ];
 
@@ -349,7 +378,7 @@ export interface NavItem {
 export const navigation: NavItem[] = [
   {
     id: "about-dropdown",
-    label: "About ArmorGalv",
+    label: "About ArmorGalv®",
     children: [
       { id: "whatistdg", label: "What is Thermal Diffusion Galvanizing?" },
       { id: "advantages", label: "Advantages" },
@@ -359,6 +388,6 @@ export const navigation: NavItem[] = [
     ],
   },
   { id: "tech-info", label: "Technical Info" },
-  { id: "media", label: "Media Center" },
   { id: "contact", label: "Service Providers" },
+  { id: "footer", label: "Contact" },
 ];

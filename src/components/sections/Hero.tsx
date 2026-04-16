@@ -63,7 +63,7 @@ export function Hero() {
           <div className="text-center w-full">
             {/* Biggest — white */}
             <motion.h1
-              className="font-display text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="font-display uppercase text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -79,7 +79,7 @@ export function Hero() {
 
             {/* Medium — gradient green */}
             <motion.h2
-              className="font-display text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[0.95] mt-6 lg:mt-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] flex flex-col items-center"
+              className="font-display uppercase text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[0.95] mt-6 lg:mt-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -88,7 +88,7 @@ export function Hero() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <span className="bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent">ArmorGalv&reg; Process&hellip;</span>
+              <span className="bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent"><span style={{ textTransform: "none" }}>ArmorGalv<span style={{ fontSize: "0.55em", verticalAlign: "super", lineHeight: 0, display: "inline-block" }}>®</span></span> Process&hellip;</span>
               <span className="bg-gradient-to-b from-[var(--color-accent-yellow)] to-[var(--color-accent-orange)] bg-clip-text text-transparent">TDG Perfected!</span>
             </motion.h2>
 

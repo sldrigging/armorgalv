@@ -1,5 +1,6 @@
 import { motion, type Variants, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { brandText } from "@/lib/brandText";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { images } from "@/data/images";
 import { aboutItems } from "@/data/content";
@@ -65,16 +66,8 @@ function AboutItemPanel({ item }: AboutItemPanelProps) {
     ? (images as Record<string, string>)[item.image] || item.image
     : null;
 
-  const sourceImages = item.collageImages
-    ? item.collageImages.map(
-        (key) => (images as Record<string, string>)[key] || key
-      )
-    : [];
-
-  // Repeat source images to fill 15 slots (5 cols × 3 rows)
-  const collageImagePaths = sourceImages.length > 0
-    ? Array.from({ length: 15 }, (_, i) => sourceImages[i % sourceImages.length])
-    : [];
+  // If the item has real example images (tn + full pairs), use those
+  const exampleImages = item.exampleImages ?? [];
 
   return (
     <motion.div
@@ -89,13 +82,13 @@ function AboutItemPanel({ item }: AboutItemPanelProps) {
         className="font-display text-5xl md:text-6xl lg:text-7xl text-[var(--color-text-primary)] mb-12 mt-12 lg:mt-24 leading-[1.1] tracking-tight uppercase"
         variants={textVariants}
       >
-        {item.title}
+        {brandText(item.title)}
       </motion.h3>
 
-      {item.isCollage && collageImagePaths.length > 0 ? (
+      {item.isCollage && exampleImages.length > 0 ? (
         <>
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-            {collageImagePaths.map((imgPath, i) => (
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-3">
+            {exampleImages.map((img, i) => (
               <motion.button
                 key={i}
                 className="relative aspect-square overflow-hidden rounded-xl bg-[#f8f9fa] border border-[var(--color-steel-dark)]/10 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] group cursor-pointer"
@@ -103,11 +96,11 @@ function AboutItemPanel({ item }: AboutItemPanelProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.03 }}
-                onClick={() => setModalSrc(imgPath)}
+                onClick={() => setModalSrc(img.full)}
               >
                 <img
-                  src={imgPath}
-                  alt={`${item.title} ${i + 1}`}
+                  src={img.tn}
+                  alt={`ArmorGalv Example ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
