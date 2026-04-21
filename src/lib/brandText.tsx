@@ -13,11 +13,20 @@ export function brandText(text: string): React.ReactNode {
       {parts.map((part, i) =>
         /^ArmorGalv[®\u00AE]$/i.test(part) ? (
           <span key={i} style={{ textTransform: "none" }}>
-            ArmorGalv<sup style={{ fontSize: "0.55em", verticalAlign: "super", lineHeight: 0 }}>®</sup>
+            ArmorGalv
+            <sup
+              style={{
+                fontSize: "0.55em",
+                verticalAlign: "super",
+                lineHeight: 0,
+              }}
+            >
+              ®
+            </sup>
           </span>
         ) : (
           part
-        )
+        ),
       )}
     </span>
   );
