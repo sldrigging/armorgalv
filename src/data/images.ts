@@ -2,6 +2,7 @@
 // Generated based on extracted PPTX mappings
 
 import sherard from "@/assets/Sherard-osborn-cowper-coles.jpg";
+import epaMvpBanner from "@/assets/EPA-MVP2-Banner-logo.png";
 
 export const images = {
   // Hero section
@@ -23,7 +24,7 @@ export const images = {
   workability1: "/images/slide15_img18.jpg",
   workability2: "/images/slide15_img19.png",
   workability3: "/images/slide15_img20.jpg",
-  ecoFriendly: "/images/slide16_img21.png",
+  ecoFriendly: epaMvpBanner,
   lifecycleSavings: "/images/slide17_img22.jpg",
 
   // Application process images (from slide 19 examples)

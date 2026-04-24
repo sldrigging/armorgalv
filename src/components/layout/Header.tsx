@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/data/content";
 import { brandText } from "@/lib/brandText";
 import logo from "@/assets/armorgalv-logo.png";
-import ecoLogo from "@/assets/Eco-Friendly-Logo.png";
+import ecoLogo from "@/assets/EPA-MVP2-Banner-logo-sm.png";
 import { useLenis } from "@/components/layout/SmoothScroll";
 
 /** Nav-only brand renderer: sizes ArmorGalv larger than the surrounding uppercase text */

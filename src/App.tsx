@@ -10,6 +10,7 @@ import { Process } from "@/components/sections/Process";
 import { Approvals } from "@/components/sections/Approvals";
 import { About } from "@/components/sections/About";
 import { WhatIsTdg } from "@/components/sections/WhatIsTdg";
+import { TechnicalInfo } from "@/components/sections/TechnicalInfo";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 
@@ -41,6 +42,9 @@ function App() {
 
         {/* Application Process */}
         <Process />
+
+        {/* Technical Info */}
+        <TechnicalInfo />
 
         {/* FAQ section */}
         <Faq />
