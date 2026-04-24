@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
 import a01Thumb from "@/assets/technical-info/A01-ArmorGalv-vs-Sherardizing-sm.jpg";
@@ -30,12 +30,12 @@ const documents = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
