@@ -27,9 +27,7 @@ function navBrandText(text: string): React.ReactNode {
             </sup>
           </span>
         ) : (
-          <span key={i} style={{ fontSize: "1.2em" }}>
-            {part}
-          </span>
+          part
         ),
       )}
     </span>
