@@ -1,0 +1,260 @@
+.tech-docs-page {
+  background: var(--color-bg-primary);
+  min-height: 100vh;
+  padding-top: 96px; /* offset for fixed header (h-24) */
+}
+
+
+.tech-docs-layout {
+  display: flex;
+  min-height: calc(100vh - 96px);
+}
+
+/* ── Sticky Left Nav ── */
+
+.tech-docs-nav {
+  width: 300px;
+  min-width: 260px;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(248, 249, 250, 0.98),
+    rgba(244, 245, 247, 0.95)
+  );
+}
+
+.tech-docs-nav-sticky {
+  position: sticky;
+  top: 96px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  padding: 2.5rem 1.5rem 2rem 2.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 153, 75, 0.3) transparent;
+}
+
+.tech-docs-nav-sticky::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tech-docs-nav-sticky::-webkit-scrollbar-thumb {
+  background: rgba(0, 153, 75, 0.3);
+  border-radius: 2px;
+}
+
+.tech-docs-nav-heading {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent-orange);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+}
+
+.tech-docs-nav-desc {
+  margin-bottom: 1.5rem;
+  color: #888;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.tech-docs-nav-group-heading {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--color-accent-orange);
+  margin: 1.5rem 0 0.5rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(0, 153, 75, 0.15);
+  font-family: var(--font-mono);
+}
+
+.tech-docs-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-docs-nav-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.35rem 0.75rem;
+  margin-bottom: 0.08rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #555;
+  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.tech-docs-nav-item:hover {
+  background: rgba(0, 153, 75, 0.06);
+  color: var(--color-accent-orange);
+}
+
+.tech-docs-nav-item.active {
+  background: linear-gradient(160deg, rgba(0, 153, 75, 0.88), rgba(0, 115, 56, 0.82));
+  color: #fff;
+  font-weight: 600;
+  box-shadow:
+    0 2px 8px rgba(0, 153, 75, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ── Main Content Area ── */
+
+.tech-docs-content {
+  flex: 1;
+  min-width: 0;
+  padding: 2rem 2.5rem 4rem;
+}
+
+/* ── Section Cards ── */
+
+.tech-docs-section {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(240, 242, 244, 0.85)
+  );
+  border-radius: 16px;
+  padding: 2rem 2.25rem 2.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.05),
+    0 1px 4px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  scroll-margin-top: 112px;
+}
+
+.tech-docs-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  margin-left: 0.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 153, 75, 0.12);
+}
+
+.tech-docs-section-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-orange);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+/* ── Document Grid ── */
+
+.tech-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  align-content: start;
+}
+
+/* ── Back to top ── */
+
+.tech-docs-back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(160deg, var(--color-accent-orange), #007a3d);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 14px rgba(0, 153, 75, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.tech-docs-back-to-top:hover {
+  background: linear-gradient(160deg, #00b358, var(--color-accent-orange));
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px rgba(0, 153, 75, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ── Responsive ── */
+
+/* ── Tablet: nav stacks above, cards stay 2-3 across ── */
+@media (max-width: 900px) {
+  .tech-docs-page {
+    padding-top: 80px;
+  }
+
+  .tech-docs-layout {
+    flex-direction: column;
+  }
+
+  .tech-docs-nav {
+    width: 100%;
+    min-width: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .tech-docs-nav-sticky {
+    position: relative;
+    top: 0;
+    max-height: none;
+    overflow-y: visible;
+    padding: 1.5rem;
+  }
+
+  .tech-docs-content {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+
+  .tech-docs-section {
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .tech-docs-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* ── Mobile: 2 columns ── */
+@media (max-width: 540px) {
+  .tech-docs-content {
+    padding: 1rem 0.875rem 2.5rem;
+  }
+
+  .tech-docs-section {
+    padding: 1.25rem 1rem;
+  }
+
+  .tech-docs-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.875rem;
+  }
+}

@@ -372,6 +372,7 @@ export const contactInfo = {
 export interface NavItem {
   id: string;
   label: string;
+  href?: string;
   children?: { id: string; label: string }[];
 }
 
@@ -387,7 +388,7 @@ export const navigation: NavItem[] = [
       { id: "process", label: "Application Process" },
     ],
   },
-  { id: "tech-info", label: "Technical Info" },
+  { id: "tech-info", label: "Technical Info", href: "/technical-info" },
   { id: "contact", label: "Service Providers" },
   { id: "footer", label: "Contact" },
 ];

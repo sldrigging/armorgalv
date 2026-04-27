@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/data/content";
 import { brandText } from "@/lib/brandText";
@@ -37,12 +38,12 @@ function navBrandText(text: string): React.ReactNode {
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { lenis } = useLenis();
+  const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 96;
-      // Walk the offsetParent chain for the absolute document position
       let offsetTop = 0;
       let el: HTMLElement | null = element;
       while (el) {
@@ -55,6 +56,8 @@ export function Header() {
       } else {
         window.scrollTo({ top: target, behavior: "smooth" });
       }
+    } else {
+      navigate(`/#${id}`);
     }
     setMobileMenuOpen(false);
   };
@@ -93,6 +96,17 @@ export function Header() {
                 key={item.id}
                 className="relative group h-full flex items-center"
               >
+                {item.href ? (
+                  <Link
+                    to={item.href}
+                    className="relative px-4 py-2 text-base font-bold tracking-wide text-[var(--color-text-primary)] hover:text-[var(--color-accent-orange)] transition-colors duration-300 cursor-pointer"
+                  >
+                    <span className="relative z-10 inline-block font-mono text-sm tracking-[0.2em] uppercase">
+                      {navBrandText(item.label)}
+                      <span className="absolute left-0 right-0 -bottom-1 h-[1px] bg-[var(--color-accent-orange)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    </span>
+                  </Link>
+                ) : (
                 <button
                   onClick={() => !item.children && scrollToSection(item.id)}
                   className="relative px-4 py-2 text-base font-bold tracking-wide text-[var(--color-text-primary)] hover:text-[var(--color-accent-orange)] transition-colors duration-300 cursor-pointer"
@@ -104,6 +118,7 @@ export function Header() {
                     )}
                   </span>
                 </button>
+                )}
 
                 {item.children && (
                   <div className="absolute top-full left-0 w-72 bg-white border border-[var(--color-steel-dark)]/10 shadow-lg rounded-b-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden flex flex-col py-2">
@@ -180,6 +195,23 @@ export function Header() {
                   key={item.id}
                   className="flex flex-col border-b border-[var(--color-steel-dark)]/30"
                 >
+                  {item.href ? (
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1, duration: 0.3 }}
+                    >
+                      <Link
+                        to={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="relative py-4 pl-6 text-left text-white hover:text-[var(--color-accent-orange)] transition-colors duration-300 group flex"
+                      >
+                        <span className="font-mono text-lg tracking-[0.2em] uppercase">
+                          {brandText(item.label)}
+                        </span>
+                      </Link>
+                    </motion.div>
+                  ) : (
                   <motion.button
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -194,6 +226,7 @@ export function Header() {
                       <motion.span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[var(--color-accent-orange)] group-hover:h-8 transition-all duration-300" />
                     )}
                   </motion.button>
+                  )}
 
                   {item.children && (
                     <motion.div

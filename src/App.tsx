@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import armorGalvLogo from "@/assets/ArmorGalv-Logo.png";
-import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { SmoothScroll, useLenis } from "@/components/layout/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { BackToTop } from "@/components/layout/BackToTop";
 import { GrainOverlay } from "@/components/effects/GrainOverlay";
@@ -14,9 +15,41 @@ import { TechnicalInfo } from "@/components/sections/TechnicalInfo";
 import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
 
+function HashScroll() {
+  const { hash } = useLocation();
+  const { lenis } = useLenis();
+
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.slice(1);
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const headerHeight = document.querySelector("header")?.offsetHeight ?? 96;
+      let offsetTop = 0;
+      let node: HTMLElement | null = el;
+      while (node) {
+        offsetTop += node.offsetTop;
+        node = node.offsetParent as HTMLElement | null;
+      }
+      const target = offsetTop - headerHeight;
+      if (lenis) {
+        lenis.scrollTo(target, { immediate: true });
+      } else {
+        window.scrollTo({ top: target, behavior: "smooth" });
+      }
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [hash, lenis]);
+
+  return null;
+}
+
 function App() {
   return (
     <SmoothScroll>
+      <HashScroll />
+
       {/* Grain overlay for industrial texture */}
       <GrainOverlay />
 

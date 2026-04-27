@@ -5,12 +5,14 @@ import './index.css'
 import App from './App.tsx'
 import { TermsPage } from './pages/TermsPage.tsx'
 import { PrivacyPage } from './pages/PrivacyPage.tsx'
+import { TechnicalDocsPage } from './pages/TechnicalDocsPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/technical-info" element={<TechnicalDocsPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
       </Routes>
