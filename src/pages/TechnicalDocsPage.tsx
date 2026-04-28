@@ -2,41 +2,52 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, type Variants } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 
-// Existing docs — have thumbnails
-import a01Thumb from "@/assets/technical-info/A01-ArmorGalv-vs-Sherardizing-sm.jpg";
-import a01Pdf from "@/assets/technical-info/A01-ArmorGalv-vs-Sherardizing.pdf";
-import c01Thumb from "@/assets/technical-info/C01-ArmorGalv-Corrosion-Thickness-Anomaly-sm.jpg";
-import c01Pdf from "@/assets/technical-info/C01-ArmorGalv-Corrosion-Thickness-Anomaly.pdf";
-import f01Thumb from "@/assets/technical-info/F01-ArmorGalv-References-sm.jpg";
-import f01Pdf from "@/assets/technical-info/F01-ArmorGalv-References.pdf";
+// PDFs
+import pdfA01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/A01- ArmorGalv vs Sherardizing.pdf";
+import pdfB01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/B01- ArmorGalv Spirol White Paper.pdf";
+import pdfB02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/B02- ArmorGalv Univ of Wollongong Abstract.pdf";
+import pdfC01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/C01- ArmorGalv Corrosion Thickness Anomaly.pdf";
+import pdfC02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/C02- ArmorGalv H2S Stress Cracking.pdf";
+import pdfD01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D01- ArmorGalv Hubbell.pdf";
+import pdfD02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D02- ArmorGalv on LCAC.pdf";
+import pdfD03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D03- ArmorGalv Rebar.pdf";
+import pdfD04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D04- ArmorGalv Spencer Industries LCAC Tie Downs.pdf";
+import pdfD05 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D05- ArmorGalv Zinc Coating for Steel in Concrete.pdf";
+import pdfD06 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D06- DSI-Australia mining.pdf";
+import pdfD07 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D07- AY McDonald Natural Gas Fittings.pdf";
+import pdfE02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/E02- ArmorGalv EPA Zinc Thermal Diffusion Abstract.pdf";
+import pdfE03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/E03- ArmorGalv Flordia DOT Evaluation.pdf";
+import pdfE04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/E04- ArmorGalv Navsea LCAC Test Report.pdf";
+import pdfF01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F01- ArmorGalv References.pdf";
+import pdfF02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F02- ArmorGalv Dade County Report.pdf";
+import pdfF03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F03- ArmorGalv Florida Corrosion Challenge.pdf";
 
-// New PDFs — no thumbnails yet
-import pdfA02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv vs Sherardizing.pdf";
-import pdfA03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Spirol White Paper.pdf";
-import pdfB01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Corrosion Thickness Anomaly.pdf";
-import pdfB02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Florida Corrosion Challenge.pdf";
-import pdfB03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Dade County Report.pdf";
-import pdfB04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/Corrosion Protection Just Went From Better to Best - A.Y. McDonald.pdf";
-import pdfC02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Thickness Anomaly.pdf";
-import pdfC03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Zinc Coating for Steel in Concrete.pdf";
-import pdfC04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv EPA Zinc Thermal Diffusion Abstract.pdf";
-import pdfD01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Rebar.pdf";
-import pdfD02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv H2S Stress Cracking.pdf";
-import pdfD03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Hubbell.pdf";
-import pdfD04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/DSI-Australia mining.pdf";
-import pdfE01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Flordia DOT Evaluation.pdf";
-import pdfE02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Navsea LCAC Test Report.pdf";
-import pdfE03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv on LCAC.pdf";
-import pdfE04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Spencer Industries LCAC Tie Downs.pdf";
-import pdfF02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F01 ArmorGalv References.pdf";
-import pdfF03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/ArmorGalv Univ of Wollongong Abstract.pdf";
+// Cover images
+import imgA01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/A01--ArmorGalv-vs-Sherardizing.png";
+import imgB01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/B01--ArmorGalv-Spirol-White-Paper.png";
+import imgB02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/B02--ArmorGalv-Univ-of-Wollongong-Abstract.png";
+import imgC01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/C01--ArmorGalv-Corrosion-Thickness-Anomaly.png";
+import imgC02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/C02--ArmorGalv-H2S-Stress-Cracking.png";
+import imgD01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D01--ArmorGalv-Hubbell.png";
+import imgD02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D02--ArmorGalv-on-LCAC.png";
+import imgD03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D03--ArmorGalv-Rebar.png";
+import imgD04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D04--ArmorGalv-Spencer-Industries-LCAC-Tie-Downs.png";
+import imgD05 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D05--ArmorGalv-Zinc-Coating-for-Steel-in-Concrete.png";
+import imgD06 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D06--DSI-Australia-Mining.png";
+import imgD07 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/D07--AY-McDonald-Natural-Gas-Fittings.png";
+import imgE02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/E02--ArmorGalv-EPA-Zinc-Thermal-Diffusion-Abstract.png";
+import imgE03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/E03--ArmorGalv-Flordia-DOT-Evaluation.png";
+import imgE04 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/E04--ArmorGalv-Navsea-LCAC-Test-Report.png";
+import imgF01 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F01--ArmorGalv-References.png";
+import imgF02 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F02--ArmorGalv-Dade-County-Report.png";
+import imgF03 from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F03--ArmorGalv-Florida-Corrosion-Challenge.png";
 
 import "./TechnicalDocsPage.css";
 
 type DocItem = {
   code: string;
   label: string;
-  thumb?: string;
+  thumb: string;
   pdf: string;
 };
 
@@ -51,58 +62,54 @@ const sections: Section[] = [
     id: "A",
     title: "Comparisons",
     items: [
-      { code: "A01", label: "ArmorGalv® vs. Sherardizing", thumb: a01Thumb, pdf: a01Pdf },
-      { code: "A02", label: "vs. Sherardizing", pdf: pdfA02 },
-      { code: "A03", label: "Spirol White Paper", pdf: pdfA03 },
+      { code: "A01", label: "ArmorGalv® vs. Sherardizing", thumb: imgA01, pdf: pdfA01 },
     ],
   },
   {
     id: "B",
-    title: "Corrosion Studies",
+    title: "White Papers & Abstracts",
     items: [
-      { code: "B01", label: "Corrosion Thickness Anomaly", pdf: pdfB01 },
-      { code: "B02", label: "Florida Corrosion Challenge", pdf: pdfB02 },
-      { code: "B03", label: "Dade County Report", pdf: pdfB03 },
-      { code: "B04", label: "Corrosion Protection: A.Y. McDonald", pdf: pdfB04 },
+      { code: "B01", label: "Spirol White Paper", thumb: imgB01, pdf: pdfB01 },
+      { code: "B02", label: "Univ of Wollongong Abstract", thumb: imgB02, pdf: pdfB02 },
     ],
   },
   {
     id: "C",
-    title: "Coating Properties",
+    title: "Corrosion Studies",
     items: [
-      { code: "C01", label: "Corrosion & Thickness Anomaly", thumb: c01Thumb, pdf: c01Pdf },
-      { code: "C02", label: "Thickness Anomaly", pdf: pdfC02 },
-      { code: "C03", label: "Zinc Coating for Steel in Concrete", pdf: pdfC03 },
-      { code: "C04", label: "EPA Zinc Thermal Diffusion Abstract", pdf: pdfC04 },
+      { code: "C01", label: "Corrosion Thickness Anomaly", thumb: imgC01, pdf: pdfC01 },
+      { code: "C02", label: "H2S Stress Cracking", thumb: imgC02, pdf: pdfC02 },
     ],
   },
   {
     id: "D",
     title: "Industry Applications",
     items: [
-      { code: "D01", label: "Rebar", pdf: pdfD01 },
-      { code: "D02", label: "H2S Stress Cracking", pdf: pdfD02 },
-      { code: "D03", label: "Hubbell", pdf: pdfD03 },
-      { code: "D04", label: "DSI-Australia Mining", pdf: pdfD04 },
+      { code: "D01", label: "Hubbell", thumb: imgD01, pdf: pdfD01 },
+      { code: "D02", label: "ArmorGalv on LCAC", thumb: imgD02, pdf: pdfD02 },
+      { code: "D03", label: "Rebar", thumb: imgD03, pdf: pdfD03 },
+      { code: "D04", label: "Spencer Industries LCAC Tie Downs", thumb: imgD04, pdf: pdfD04 },
+      { code: "D05", label: "Zinc Coating for Steel in Concrete", thumb: imgD05, pdf: pdfD05 },
+      { code: "D06", label: "DSI-Australia Mining", thumb: imgD06, pdf: pdfD06 },
+      { code: "D07", label: "AY McDonald Natural Gas Fittings", thumb: imgD07, pdf: pdfD07 },
     ],
   },
   {
     id: "E",
     title: "Government & Military",
     items: [
-      { code: "E01", label: "Florida DOT Evaluation", pdf: pdfE01 },
-      { code: "E02", label: "Navsea LCAC Test Report", pdf: pdfE02 },
-      { code: "E03", label: "ArmorGalv on LCAC", pdf: pdfE03 },
-      { code: "E04", label: "Spencer Industries LCAC Tie Downs", pdf: pdfE04 },
+      { code: "E02", label: "EPA Zinc Thermal Diffusion Abstract", thumb: imgE02, pdf: pdfE02 },
+      { code: "E03", label: "Florida DOT Evaluation", thumb: imgE03, pdf: pdfE03 },
+      { code: "E04", label: "Navsea LCAC Test Report", thumb: imgE04, pdf: pdfE04 },
     ],
   },
   {
     id: "F",
     title: "References & Reports",
     items: [
-      { code: "F01", label: "ArmorGalv® References", thumb: f01Thumb, pdf: f01Pdf },
-      { code: "F02", label: "ArmorGalv References", pdf: pdfF02 },
-      { code: "F03", label: "Univ of Wollongong Abstract", pdf: pdfF03 },
+      { code: "F01", label: "ArmorGalv® References", thumb: imgF01, pdf: pdfF01 },
+      { code: "F02", label: "Dade County Report", thumb: imgF02, pdf: pdfF02 },
+      { code: "F03", label: "Florida Corrosion Challenge", thumb: imgF03, pdf: pdfF03 },
     ],
   },
 ];
@@ -166,35 +173,14 @@ function DocCard({ item }: { item: DocItem }) {
       variants={cardVariants}
       className={cardClass}
     >
-      {item.thumb ? (
-        <div className="relative overflow-hidden bg-[var(--color-bg-secondary)]">
-          <img
-            src={item.thumb}
-            alt={item.label}
-            className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]"
-          />
-          {overlay}
-        </div>
-      ) : (
-        <div className="relative w-full aspect-[0.77] bg-gradient-to-br from-[var(--color-bg-secondary)] to-[var(--color-bg-tertiary)] flex flex-col items-center justify-center gap-2 group-hover:from-[rgba(0,153,75,0.04)] group-hover:to-[rgba(0,153,75,0.08)] transition-all duration-300">
-          <div className="w-12 h-12 rounded-full border-2 border-dashed border-[var(--color-steel-dark)]/30 group-hover:border-[var(--color-accent-orange)]/40 transition-colors duration-300 flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-orange)] transition-colors duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <span className="font-mono text-xs text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-orange)] transition-colors duration-300 tracking-wider">
-            PDF
-          </span>
-          {overlay}
-        </div>
-      )}
+      <div className="relative overflow-hidden bg-[var(--color-bg-secondary)]">
+        <img
+          src={item.thumb}
+          alt={item.label}
+          className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.03]"
+        />
+        {overlay}
+      </div>
       {footer}
     </motion.a>
   );

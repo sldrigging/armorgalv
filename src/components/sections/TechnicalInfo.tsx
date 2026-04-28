@@ -1,13 +1,13 @@
 import { motion, type Variants } from "framer-motion";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 
-import a01Thumb from "@/assets/technical-info/A01-ArmorGalv-vs-Sherardizing-sm.jpg";
-import c01Thumb from "@/assets/technical-info/C01-ArmorGalv-Corrosion-Thickness-Anomaly-sm.jpg";
-import f01Thumb from "@/assets/technical-info/F01-ArmorGalv-References-sm.jpg";
+import a01Thumb from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/A01--ArmorGalv-vs-Sherardizing.png";
+import c01Thumb from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/C01--ArmorGalv-Corrosion-Thickness-Anomaly.png";
+import f01Thumb from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F01--ArmorGalv-References.png";
 
-import a01Pdf from "@/assets/technical-info/A01-ArmorGalv-vs-Sherardizing.pdf";
-import c01Pdf from "@/assets/technical-info/C01-ArmorGalv-Corrosion-Thickness-Anomaly.pdf";
-import f01Pdf from "@/assets/technical-info/F01-ArmorGalv-References.pdf";
+import a01Pdf from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/A01- ArmorGalv vs Sherardizing.pdf";
+import c01Pdf from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/C01- ArmorGalv Corrosion Thickness Anomaly.pdf";
+import f01Pdf from "@/assets/technical-info/ArmorGalv-Technical-Docs-PDFs/F01- ArmorGalv References.pdf";
 
 const documents = [
   {
@@ -18,7 +18,7 @@ const documents = [
   },
   {
     id: "C01",
-    title: "Corrosion & Thickness Anomaly",
+    title: "Corrosion Thickness Anomaly",
     thumb: c01Thumb,
     pdf: c01Pdf,
   },
