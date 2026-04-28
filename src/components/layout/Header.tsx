@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/data/content";
 import { brandText } from "@/lib/brandText";
@@ -39,6 +39,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { lenis } = useLenis();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -72,11 +73,19 @@ export function Header() {
           {/* Logo Container */}
           <div className="flex-1 flex items-center">
             <a
-              href="#"
+              href="/"
               className="relative flex items-center group cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
+                if (pathname === "/") {
+                  if (lenis) {
+                    lenis.scrollTo(0);
+                  } else {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                } else {
+                  navigate("/");
+                }
               }}
             >
               <div className="flex items-center gap-3">
