@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "How do I become an ArmorGalv\u00AE licensee?",
     answer:
-      "To learn about becoming a licensee, contact us directly. We provide the proprietary zinc powder mixture, process training, and ongoing technical support to ensure consistent, high-quality results.",
+      "To learn about becoming a licensee, please contact us directly. We provide a \"turnkey\" solution, including equipment, technology, materials, training and continuing support.",
   },
 ];
 

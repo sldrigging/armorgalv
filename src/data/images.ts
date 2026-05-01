@@ -2,7 +2,8 @@
 // Generated based on extracted PPTX mappings
 
 import sherard from "@/assets/Sherard-osborn-cowper-coles.jpg";
-import epaMvpBanner from "@/assets/EPA-MVP2-Banner-logo.png";
+import epaMvpBanner from "@/assets/MVP2.png";
+import hydrogenEmbrittlementImg from "@/assets/Hydrogen-Embrittlement.png";
 
 export const images = {
   // Hero section
@@ -15,7 +16,7 @@ export const images = {
   surfaceProtection: "/images/slide7_img10.jpg",
   thicknessControl: "/images/slide8_img11.jpg",
   antiGalling: "/images/slide9_img12.jpg",
-  hydrogenEmbrittlement: "/images/slide10_img13.png",
+  hydrogenEmbrittlement: hydrogenEmbrittlementImg,
   lowerTemperature: "/images/slide11_img14.png",
   highTemperature: "/images/slide12_img15.png",
   topcoats: "/images/slide13_img16.png",

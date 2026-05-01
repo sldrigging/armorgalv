@@ -57,7 +57,7 @@ export function Contact() {
                         {category.note}
                       </p>
                     )}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {category.providers.map((provider) => (
                         <div
                           key={provider.company}
@@ -70,12 +70,20 @@ export function Contact() {
                             {provider.location}
                           </p>
                           <div className="flex flex-col gap-1 text-sm">
-                            <span className="text-[var(--color-accent-orange)]">
+                            <a
+                              href={provider.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[var(--color-accent-orange)] hover:underline transition-opacity hover:opacity-80"
+                            >
                               {provider.website}
-                            </span>
-                            <span className="text-[var(--color-text-muted)]">
+                            </a>
+                            <a
+                              href={`tel:${provider.phone.replace(/\D/g, "")}`}
+                              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent-orange)] transition-colors"
+                            >
                               {provider.phone}
-                            </span>
+                            </a>
                           </div>
                         </div>
                       ))}

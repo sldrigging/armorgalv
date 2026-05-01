@@ -100,9 +100,7 @@ function App() {
                 </div>
               </div>
               <p className="text-black text-sm max-w-xs">
-                ArmorGalv<sup>®</sup> &mdash; Thermal Diffusion Galvanizing perfected.
-                A superior choice to hot dip galvanizing, meeting ASTM A-1059
-                standards.
+                ArmorGalv<sup>®</sup> &mdash; Thermal Diffusion Galvanizing perfected. 5,000-hours salt spray performance. Meets ASTM A-1059 standards.
               </p>
             </div>
 
@@ -115,19 +113,19 @@ function App() {
                 <p className="flex items-center gap-3">
                   <span className="text-[var(--color-accent-orange)]">E:</span>
                   <a
-                    href="mailto:moshe@armorgalv.com"
+                    href="mailto:moshe@distekna.com"
                     className="hover:text-[var(--color-accent-orange)] transition-colors"
                   >
-                    moshe@armorgalv.com
+                    moshe@distekna.com
                   </a>
                 </p>
                 <p className="flex items-center gap-3">
                   <span className="text-[var(--color-accent-orange)]">P:</span>
                   <a
-                    href="tel:+1xxx8888888"
+                    href="tel:+16178340058"
                     className="hover:text-[var(--color-accent-orange)] transition-colors"
                   >
-                    xxx-888-8888
+                    (617) 834-0058
                   </a>
                 </p>
               </div>

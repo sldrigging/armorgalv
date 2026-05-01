@@ -63,7 +63,7 @@ export function Hero() {
           <div className="text-center w-full">
             {/* Biggest — white */}
             <motion.h1
-              className="font-display uppercase text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="invisible font-display uppercase text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -79,7 +79,7 @@ export function Hero() {
 
             {/* Medium — gradient green */}
             <motion.h2
-              className="font-display uppercase text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[0.95] mt-6 lg:mt-10 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] flex flex-col items-center"
+              className="font-display uppercase text-[6.5vw] md:text-[4.5vw] lg:text-[3.8vw] leading-[0.95] mt-6 lg:mt-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -94,7 +94,8 @@ export function Hero() {
 
             {/* Small — white */}
             <motion.p
-              className="text-white text-lg md:text-xl font-bold tracking-[0.25em] mt-6 lg:mt-8 uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="text-white text-lg md:text-xl font-bold tracking-[0.25em] mt-6 lg:mt-8 uppercase flex flex-col items-center gap-0.5"
+              style={{ textShadow: "0 2px 6px rgba(0,0,0,0.65)" }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -103,12 +104,14 @@ export function Hero() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              A Superior Choice to Hot Dip Galvanizing
+              <span>5,000-Hour Salt Spray Performance</span>
+              <span>Alternative to Stainless Steel</span>
             </motion.p>
 
             {/* Smallest — green */}
             <motion.p
-              className="text-[var(--color-accent-yellow)] text-base md:text-lg font-bold tracking-[0.35em] mt-1 font-mono uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="text-[var(--color-accent-yellow)] text-base md:text-lg font-extrabold tracking-[0.35em] mt-1 font-mono uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              style={{ textShadow: "0 2px 6px rgba(0,0,0,0.65)" }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
