@@ -52,11 +52,6 @@ export function Contact() {
                     <h4 className="font-display uppercase text-2xl md:text-3xl text-[var(--color-text-primary)] mb-2 tracking-wide">
                       {category.category}
                     </h4>
-                    {"note" in category && category.note && (
-                      <p className="text-[var(--color-text-muted)] text-sm mb-6 italic">
-                        {category.note}
-                      </p>
-                    )}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {category.providers.map((provider) => (
                         <div
