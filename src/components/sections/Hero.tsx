@@ -63,7 +63,7 @@ export function Hero() {
           <div className="text-center w-full">
             {/* Biggest — white */}
             <motion.h1
-              className="invisible font-display uppercase text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
+              className="font-display uppercase text-[9vw] md:text-[6.5vw] lg:text-[5.5vw] leading-[1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
