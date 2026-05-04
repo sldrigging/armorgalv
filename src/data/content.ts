@@ -111,7 +111,7 @@ export const advantages: Advantage[] = [
     title: "Zero Hydrogen & Liquid Metal Embrittlement",
     subtitle: "Safe for High-Strength Alloys",
     description:
-      "Unlike electro-plating and hot dip galvanizing that require acid-cleaning processes, the ArmorGalv\u00AE process has no risk of hydrogen embrittlement. And because there is no penetration of molten metal, there is no intergranular cracking. This makes ArmorGalv\u00AE safe for high strength alloys.",
+      "Unlike electro-plating and hot dip galvanizing that require acid-cleaning processes, the ArmorGalv\u00AE process mostly uses dry blasting and has no risk of hydrogen embrittlement. Even if acid pickling is used, the ArmorGalv\u00AE thermal process relieves any hydrogen trapped in the metal, eliminating any chance of hydrogen embrittlement. And because there is no dipping in molten metal, there is no thermal shock, causing intergranular cracking. This makes ArmorGalv\u00AE safe for high strength alloys.",
     image: "hydrogenEmbrittlement",
   },
   {
@@ -237,9 +237,9 @@ export const aboutItems: AboutItem[] = [
     id: "whatIsTDG",
     title: "What is Thermal Diffusion Galvanizing?",
     points: [
-      "Thermal Diffusion Galvanizing is the process that diffuses zinc into the surface of steel to form a series of zinc-iron alloy layers. These layers are highly resistant to abrasion and corrosion.",
-      "The process involves placing clean steel parts into a closed drum with zinc dust that is heated to high temperatures for a prescribed time.",
-      "This process was invented around 1900 by British metallurgist Sherard Osborn Cowper-Coles and was named Sherardizing.",
+      "Thermal Diffusion Galvanizing is a process in which zinc is diffused into the steel surface, creating a series of zinc-iron alloy layers that offer exceptional resistance to both abrasion and corrosion.",
+      "The process entails loading clean steel components into a sealed drum containing zinc dust, which is then heated to high temperatures for a specified duration.",
+      "Invented around 1900 by British metallurgist Sherard Osborn Cowper-Coles, this process was named Sherardizing.",
     ],
     image: "tdgProcess",
     secondImage: "tdgProcess2",
@@ -249,10 +249,10 @@ export const aboutItems: AboutItem[] = [
     id: "armorGalvProcess",
     title: "ArmorGalv\u00AE Process\u2026Perfected!",
     points: [
-      "ArmorGalv\u00AE is the 21st century evolution of Thermal Diffusion technology. The process is highly controllable by computer, consistently repeatable and requires minimal labor and floor space.",
-      "The main advancement of ArmorGalv\u00AE is contained in the proprietary zinc powder mixture that has catalysts or accelerators that cause sublimation \u2014 the word used to describe how a solid transforms directly to a gas at higher temperatures.",
-      "In the ArmorGalv\u00AE process, zinc dust sublimates into a gas at lower temperatures that allows for vapor diffusion into the base metal.",
-      "Contrarily, the Sherardizing process requires the addition of sand to manage a sublimation process that requires higher temperatures and produces less consistent thicknesses.",
+      "As the 21st-century evolution of thermal diffusion technology, ArmorGalv\u00AE offers a highly controllable, computer-driven process that is consistently repeatable while requiring minimal labor and floor space.",
+      "The key advancement of ArmorGalv\u00AE lies in its proprietary zinc powder mixture, which contains catalysts and accelerators that induce sublimation \u2014 the term for the direct transformation of a solid into a gas at elevated temperatures.",
+      "In the ArmorGalv\u00AE process, zinc dust sublimates into a gas at temperatures far below the melting point of zinc, enabling vapor diffusion into the base metal.",
+      "In contrast, the Sherardizing process requires the addition of sand to manage sublimation, which necessitates higher temperatures and results in less consistent coating thicknesses.",
     ],
     image: "armorGalvProcess",
   },

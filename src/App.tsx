@@ -122,10 +122,10 @@ function App() {
                 <p className="flex items-center gap-3">
                   <span className="text-[var(--color-accent-orange)]">P:</span>
                   <a
-                    href="tel:+16178340058"
+                    href="tel:+16175660058"
                     className="hover:text-[var(--color-accent-orange)] transition-colors"
                   >
-                    (617) 834-0058
+                    617-566-0058
                   </a>
                 </p>
               </div>
