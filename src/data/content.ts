@@ -369,8 +369,8 @@ export const serviceProviders = [
       {
         company: "Sicame/Kortick Mfg",
         location: "Pittsburgh, California",
-        url: "http://Cortick.com",
-        website: "Cortick.com",
+        url: "http://Kortick.com",
+        website: "Kortick.com",
         phone: "(510) 856-3600",
       },
     ],
