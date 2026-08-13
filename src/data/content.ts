@@ -416,5 +416,5 @@ export const navigation: NavItem[] = [
   { id: "tech-info", label: "Technical Info", href: "/technical-info" },
   { id: "contact", label: "Service Providers" },
   { id: "footer", label: "Contact" },
-  { id: "footer", label: "Join The Team" },
+  { id: "join-team", label: "Join the Team", href: "#footer" },
 ];
