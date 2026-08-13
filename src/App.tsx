@@ -104,30 +104,53 @@ function App() {
               </p>
             </div>
 
-            {/* Contact Info */}
+{/* Contact Info */}
             <div className="flex flex-col gap-6">
               <h4 className="font-display uppercase text-lg tracking-widest text-black">
                 CONTACT
               </h4>
+              
               <div className="flex flex-col gap-4 text-sm text-black">
-                <p className="flex items-center gap-3">
-                  <span className="text-[var(--color-accent-orange)]">E:</span>
-                  <a
-                    href="mailto:moshe@distekna.com"
-                    className="hover:text-[var(--color-accent-orange)] transition-colors"
-                  >
-                    moshe@distekna.com
-                  </a>
-                </p>
-                <p className="flex items-center gap-3">
-                  <span className="text-[var(--color-accent-orange)]">P:</span>
-                  <a
-                    href="tel:+16175660058"
-                    className="hover:text-[var(--color-accent-orange)] transition-colors"
-                  >
-                    617-566-0058
-                  </a>
-                </p>
+                {/* Company Name */}
+                <h5 className="font-display text-xl mb-1">
+                  Distek N.A. LLC
+                </h5>
+                
+                <div className="flex flex-col gap-3">
+                  {/* Contact 1: Moshe Moked */}
+                  <div className="flex flex-col gap-1">
+                    <span className="font-semibold">Moshe Moked</span>
+                    <a
+                      href="mailto:moshe@distekna.com"
+                      className="hover:text-[var(--color-accent-orange)] transition-colors"
+                    >
+                      moshe@distekna.com
+                    </a>
+                    <a
+                      href="tel:+16175660058"
+                      className="hover:text-[var(--color-accent-orange)] transition-colors"
+                    >
+                      (617) 566-0058
+                    </a>
+                  </div>
+
+                  {/* Contact 2: Straus Martin */}
+                  <div className="flex flex-col gap-1 pt-3 border-t border-black/10">
+                    <span className="font-semibold">Straus Martin</span>
+                    <a
+                      href="mailto:martystraus@gmail.com"
+                      className="hover:text-[var(--color-accent-orange)] transition-colors"
+                    >
+                      martystraus@gmail.com
+                    </a>
+                    <a
+                      href="tel:+13129274927"
+                      className="hover:text-[var(--color-accent-orange)] transition-colors"
+                    >
+                      (312) 927-4927
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
