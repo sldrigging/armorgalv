@@ -116,6 +116,35 @@ export function Contact() {
                 ))}
               </div>
 
+            <h3 className="font-display uppercase text-4xl md:text-5xl lg:text-7xl text-[var(--color-text-primary)] mb-12 leading-tight tracking-tight">
+                Join Our <br />
+                <span className="text-[var(--color-accent-orange)]">
+                  TEAM
+                </span>
+              </h3>
+
+              <p className="text-[var(--color-text-secondary)] text-xl md:text-3xl leading-relaxed font-light mb-16 max-w-5xl">
+                Interested in becoming a part of the ArmorGalv<sup>®</sup> team?
+                Contact us to discuss how to become a licensee, or join our sales
+                team as a commissioned agent or representative.
+              </p>
+              {/* Contact 1: Moshe Moked */}
+                  <div className="flex flex-col gap-1">
+                    <span className="font-semibold">Moshe Moked</span>
+                    <a
+                      href="mailto:moshe@distekna.com"
+                      className="hover:text-[var(--color-accent-orange)] transition-colors"
+                    >
+                      moshe@distekna.com
+                    </a>
+                    <a
+                      href="tel:+16175660058"
+                      className="hover:text-[var(--color-accent-orange)] transition-colors"
+                    >
+                      (617) 566-0058
+                    </a>
+                  </div>
+
               {/* Contact Form (Hidden per user request) */}
               <div className="hidden">
                  {/* Form was here */}
