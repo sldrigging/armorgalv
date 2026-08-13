@@ -339,6 +339,18 @@ export const serviceProviders = [
         url: "http://Chemplateindustries.com",
         website: "Chemplateindustries.com",
         phone: "(847) 640-1600",
+        contacts: [
+          {
+            name: "Straus Martin",
+            email: "martystraus@gmail.com",
+            phone: "(312) 927-4927"
+          },
+          {
+            name: "Porf Martinez",
+            email: "Pmartinez@chemplateindustries.com",
+            phone: "(847) 878-4594"
+          }
+        ]
       },
       {
         company: "DiffusionTek Finishing",

@@ -73,12 +73,41 @@ export function Contact() {
                             >
                               {provider.website}
                             </a>
-                            <a
-                              href={`tel:${provider.phone.replace(/\D/g, "")}`}
-                              className="text-[var(--color-text-muted)] hover:text-[var(--color-accent-orange)] transition-colors"
-                            >
-                              {provider.phone}
-                            </a>
+                            
+                            {/* Always render the main company phone number if it exists */}
+                            {provider.phone && (
+                              <a
+                                href={`tel:${provider.phone.replace(/\D/g, "")}`}
+                                className="text-[var(--color-text-muted)] hover:text-[var(--color-accent-orange)] transition-colors"
+                              >
+                                {provider.phone}
+                              </a>
+                            )}
+
+                            {/* Render the specific contacts if they are present in the data */}
+                            {provider.contacts && (
+                              <div className="flex flex-col gap-3 mt-3">
+                                {provider.contacts.map((contact, contactIndex) => (
+                                  <div key={contactIndex} className="flex flex-col gap-1 pt-3 border-t border-[var(--color-steel-dark)]/10">
+                                    <span className="font-semibold text-[var(--color-text-primary)]">
+                                      {contact.name}
+                                    </span>
+                                    <a
+                                      href={`mailto:${contact.email}`}
+                                      className="text-[var(--color-text-muted)] hover:text-[var(--color-accent-orange)] transition-colors"
+                                    >
+                                      {contact.email}
+                                    </a>
+                                    <a
+                                      href={`tel:${contact.phone.replace(/\D/g, "")}`}
+                                      className="text-[var(--color-text-muted)] hover:text-[var(--color-accent-orange)] transition-colors"
+                                    >
+                                      {contact.phone}
+                                    </a>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         </div>
                       ))}
